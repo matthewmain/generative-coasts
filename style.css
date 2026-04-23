@@ -10,7 +10,7 @@ body {
 .buttons-container {
   position: absolute;
   margin: 0;
-  font-family: Monaco;
+  font-family: Monaco, Consolas, 'Courier New', monospace;
   font-size: 9px;
   text-align: right;
   right: 13px;
