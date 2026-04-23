@@ -1,6 +1,9 @@
 const { Pool } = require('pg');
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+});
 
 let tableReady = false;
 
@@ -42,7 +45,7 @@ module.exports = async function handler(req, res) {
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('log-event error:', err);
-    res.status(500).json({ error: 'internal error' });
+    console.error('log-event error:', err.message);
+    res.status(500).json({ error: err.message });
   }
 };

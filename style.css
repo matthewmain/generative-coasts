@@ -49,3 +49,13 @@ body {
   fill: none;
   stroke-width: 10;
 }
+
+@media (max-width: 500px) {
+  .svg-container {
+    width: 90vw;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+  }
+}
