@@ -144,6 +144,7 @@ function init() {
   populateSVG();
   console.log("coast:", coast);
   console.log("cells:", cells);
+  logEvent('generated');
 }
 
 
@@ -453,6 +454,15 @@ function getFillColor( height ) {
 }
 
 
+function logEvent(action) {
+  fetch('/api/log-event', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ seed: coast.seed, tide_level: seaLevel, action }),
+  }).catch(() => {});
+}
+
+
 function regenerate() {
   $(".lines, .cells").empty();
   pauseTide();
@@ -473,6 +483,7 @@ function downloadSVG() {
   downloadLink.click();
   document.body.removeChild(downloadLink);
   URL.revokeObjectURL(svgUrl);
+  logEvent('SVG downloaded');
 }
 
 
@@ -500,6 +511,7 @@ function downloadPNG() {
       document.body.removeChild(downloadLink);
       URL.revokeObjectURL(pngUrl);
       URL.revokeObjectURL(svgUrl);
+      logEvent('PNG downloaded');
     });
   };
   img.src = svgUrl;
