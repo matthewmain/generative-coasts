@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img">
+  <title>Play icon</title>
+  <circle cx="64" cy="64" r="64" fill="#272727"/>
+  <polygon points="42,36 42,92 105,64" fill="#fff"/>
+</svg>
