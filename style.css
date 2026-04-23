@@ -58,4 +58,7 @@ body {
     width: 100%;
     height: auto;
   }
+  .buttons-container {
+    font-size: 14px;
+  }
 }
