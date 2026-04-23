@@ -455,7 +455,7 @@ function getFillColor( height ) {
 
 
 function logEvent(action) {
-  fetch('/api/log-event', {
+  fetch('api/log-event', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ seed: coast.seed, tide_level: seaLevel, action }),
