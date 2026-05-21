@@ -10,7 +10,7 @@ let tableReady = false;
 async function ensureTable() {
   if (tableReady) return;
   await pool.query(`
-    CREATE TABLE IF NOT EXISTS coast_events (
+    CREATE TABLE IF NOT EXISTS "gc-coast_events" (
       id          SERIAL PRIMARY KEY,
       seed        INTEGER,
       tide_level  INTEGER,
@@ -39,7 +39,7 @@ module.exports = async function handler(req, res) {
     await ensureTable();
 
     await pool.query(
-      `INSERT INTO coast_events (seed, tide_level, action, location) VALUES ($1, $2, $3, $4)`,
+      `INSERT INTO "gc-coast_events" (seed, tide_level, action, location) VALUES ($1, $2, $3, $4)`,
       [seed, tide_level, action, location]
     );
 
